@@ -1,0 +1,23 @@
+<mat-card class="post-card">
+  <mat-card-header>
+    <mat-card-title>
+     <span class="post-title">Title: </span>
+     <span class="post-title-text">{{post.title}}</span>
+    </mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="post-body">
+      <p>
+       <span>Description:</span>
+        <span class="post-body-text">{{post.body}}</span>
+      </p>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="action">
+      <button mat-button color="primary" (click)="onEdit()">EDIT</button>
+      <button mat-button color="accent" (click)="onDelete()">DELETE</button>
+    </div>
+  </mat-card-actions>
+</mat-card>

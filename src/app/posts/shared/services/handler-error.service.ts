@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class HandlerErrorService {
   private static readonly errorMessages = {
     'required': () => 'This field is required',

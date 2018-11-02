@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>
+ <span>
+   {{ isEditMode ? 'Edit post' : 'Create post'}}
+ </span>
+</h2>
+<mat-dialog-content>
+  <form [formGroup]="formPost" (ngSubmit)="onSubmit()" id="post">
+    <div class="todo-title">
+      <mat-form-field>
+        <input matInput placeholder="Title of the ToDo" [formControlName]="'title'">
+        <mat-error *ngIf="formPost.get('title').invalid">{{getErrorMessage(formPost.get('title'))}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="todo-title">
+      <mat-form-field>
+        <textarea matInput placeholder="Post description" [formControlName]="'body'"></textarea>
+        <mat-error *ngIf="formPost.get('body').invalid">{{getErrorMessage(formPost.get('body'))}}</mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <ng-container *ngTemplateOutlet="isEditMode ? editActions : createActions">
+  </ng-container>
+</mat-dialog-actions>
+
+<ng-template #createActions>
+  <div class="create-action">
+    <button mat-button mat-dialog-close>Close</button>
+    <button mat-button  form="post">Save Post</button>
+  </div>
+</ng-template>
+
+<ng-template #editActions>
+  <div class="edit-action">
+    <button mat-button mat-dialog-close>Close</button>
+    <button mat-button  form="post">Update Post</button>
+  </div>
+</ng-template>

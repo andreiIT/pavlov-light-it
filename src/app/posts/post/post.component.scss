@@ -1,0 +1,19 @@
+.post {
+
+  &-card {
+    margin-bottom: 10px;
+  }
+
+  &-body-text, &-title-text {
+    display: inline-block;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+}
+
+.action {
+  display: flex;
+  justify-content: flex-end;
+}
